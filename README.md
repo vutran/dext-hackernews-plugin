@@ -1,6 +1,6 @@
 # dext-hackernews-plugin
 
-> [Dext](https://github.com/vutran/dext) plugin to search for stories on Hacker News.ls -a
+> [Dext](https://github.com/vutran/dext) plugin to fetch top/best/new for stories on Hacker News.
 
 ![](screenshot.png?raw=true)
 
@@ -14,7 +14,11 @@ $ dpm install dext-hackernews-plugin
 
 ## Usage
 
-In Dext, type `gh`, then your query.
+In Dext, type `hn`, then one of the following options below.
+
+- `top` - Fetch top stories
+- `best`- Fetch best stories
+- `new` - Fetch new stories
 
 ## Related
 
