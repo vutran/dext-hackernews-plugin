@@ -2,7 +2,7 @@
 
 > [Dext](https://github.com/vutran/dext) plugin to search for stories on Hacker News.ls -a
 
-![](screenshot.gif?raw=true)
+![](screenshot.png?raw=true)
 
 ## Install
 
