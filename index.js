@@ -9,7 +9,7 @@ const getItemData = id => got(`https://hacker-news.firebaseio.com/v0/item/${id}.
 module.exports = {
   keyword: 'hn',
   action: 'openurl',
-  output: q => new Promise(resolve => {
+  execute: q => new Promise(resolve => {
     let prom = false;
     switch (q) {
       case 'new':
