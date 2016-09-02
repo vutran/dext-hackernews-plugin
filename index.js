@@ -1,3 +1,5 @@
+// Hacker News Icon by Freepik <http://www.flaticon.com/free-icon/hacker-news-logo_51785>
+
 const got = require('got');
 
 const getTopStories = () => got('https://hacker-news.firebaseio.com/v0/topstories.json', { json: true });
@@ -9,6 +11,15 @@ const getItemData = id => got(`https://hacker-news.firebaseio.com/v0/item/${id}.
 module.exports = {
   keyword: 'hn',
   action: 'openurl',
+  helper: function(q) {
+    return {
+      title: `Get stories on Hacker News`,
+      subtitle: `Available Options: new, top, best`,
+      icon: {
+        path: './icon.png',
+      },
+    };
+  },
   execute: q => new Promise(resolve => {
     let prom = false;
     switch (q) {
