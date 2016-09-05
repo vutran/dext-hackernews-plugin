@@ -1,14 +1,16 @@
 // Hacker News Icon by Freepik <http://www.flaticon.com/free-icon/hacker-news-logo_51785>
 const got = require('got');
+
 const OPTS_DEFAULT = {
   json: true,
 };
+
 const getItemData = id => got(
   `https://hacker-news.firebaseio.com/v0/item/${id}.json`,
   OPTS_DEFAULT
 );
 
-const processNews = ({ body }) => {
+const processNews = ({ body }, context) => {
   const top = body
     .filter((x, y) => y < 10)
     .map(getItemData);
@@ -20,9 +22,9 @@ const processNews = ({ body }) => {
         arg: item.url,
         icon: {
           path: './icon.png',
-        }
+        },
       }));
-      resolve({ items });
+      context({ items });
     });
 };
 
@@ -30,8 +32,8 @@ module.exports = {
   keyword: 'hn',
   action: 'openurl',
   helper: {
-    title: `Get stories on Hacker News`,
-    subtitle: `Available Options: new, top, best`,
+    title: 'Get stories on Hacker News',
+    subtitle: 'Available Options: new, top, best',
     icon: {
       path: './icon.png',
     },
@@ -40,15 +42,15 @@ module.exports = {
     switch (q) {
       case 'new':
       case 'top':
-      case 'best': {
-        const stories = got(
+      case 'best':
+        got(
           `https://hacker-news.firebaseio.com/v0/${q}stories.json`,
           OPTS_DEFAULT
-        ).then(processNews);
-        return;
-      }
+        ).then((response) => { processNews(response, resolve); });
+        break;
       default:
-        return;
+        // do nothing...
+        break;
     }
     resolve({ items: [] });
   }),
