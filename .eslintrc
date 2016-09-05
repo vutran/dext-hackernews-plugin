@@ -3,6 +3,6 @@
   "rules": {
     "max-len": 0,
     "comma-dangle": ["error", "always-multiline"],
-    "semi": ["error", "always"],
+    "semi": ["error", "always"]
   }
 }
