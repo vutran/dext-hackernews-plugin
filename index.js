@@ -10,11 +10,12 @@ const getItemData = id => got(
   OPTS_DEFAULT
 );
 
-const processNews = ({ body }, context) => {
+const processNews = ({ body }) => {
   const top = body
     .filter((x, y) => y < 10)
     .map(getItemData);
-  Promise.all(top)
+
+  return Promise.all(top)
     .then(topResults => {
       const items = topResults.map(({ body: item }) => ({
         title: item.title,
@@ -24,7 +25,8 @@ const processNews = ({ body }, context) => {
           path: './icon.png',
         },
       }));
-      context({ items });
+
+      return items;
     });
 };
 
@@ -46,12 +48,15 @@ module.exports = {
         got(
           `https://hacker-news.firebaseio.com/v0/${q}stories.json`,
           OPTS_DEFAULT
-        ).then((response) => { processNews(response, resolve); });
-        break;
+        )
+        .then(processNews)
+        .then((items) => resolve({ items }));
+        return;
       default:
         // do nothing...
         break;
     }
+
     resolve({ items: [] });
   }),
 };
