@@ -25,7 +25,6 @@ const processNews = ({ body }) => {
           path: './icon.png',
         },
       }));
-
       return items;
     });
 };
