@@ -1,5 +1,7 @@
 # dext-hackernews-plugin ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
+![](https://img.shields.io/badge/license-MIT-blue.svg)
+
 > [Dext](https://github.com/vutran/dext) plugin to fetch top/best/new for stories on Hacker News.
 
 ![](screenshot.png?raw=true)
