@@ -18,7 +18,8 @@
   },
   "scripts": {
     "lint": "eslint index.js",
-    "test": "jest --verbose --watch"
+    "test": "jest --coverage",
+    "test-watch": "jest --watch"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
