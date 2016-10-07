@@ -1,26 +1,29 @@
 let mockData = null;
-let processNewsData = null;
+let mockItemData = null;
 
-// then in our mock `got()` function, we can set the mockData as the body
-
-const got = function(url) {
-  if (url.indexOf('item') !== -1) {
-    return new Promise(function(resolve) {
-      resolve({ body: processNewsData });
-    });
-  }
-
+/**
+ * Mocks the `got()`` function
+ * @param {String} url
+ */
+const got = (url) => {
+  const body = (url.indexOf('item') !== -1) ? mockItemData : mockData;
   return new Promise(function(resolve) {
-    resolve({ body: mockData });
+    resolve({ body });
   });
 };
 
-// here, we're creating a new function called __setFakeData() which sets the mockData variable
+/**
+ * Set fake data for the list endpoint
+ */
 got.__setFakeData = (data) => {
   mockData = data;
 };
+
+/**
+ * Set fake data for the item endpoint
+ */
 got.__setProcessData = (data) => {
-  processNewsData = data;
+  mockItemData = data;
 };
 
 module.exports = got;
