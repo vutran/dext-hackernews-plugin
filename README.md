@@ -1,6 +1,6 @@
 # dext-hackernews-plugin
 
-![](https://img.shields.io/badge/license-MIT-blue.svg)
+[![Travis](https://img.shields.io/travis/vutran/dext-hackernews-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/vutran/dext-hackernews-plugin) [![Coveralls branch](https://img.shields.io/coveralls/vutran/dext-hackernews-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://coveralls.io/github/vutran/dext-hackernews-plugin) [![license](https://img.shields.io/github/license/vutran/dext-hackernews-plugin.svg?maxAge=2592000&style=flat-square)](LICENSE)
 
 > [Dext](https://github.com/vutran/dext) plugin to fetch top/best/new for stories on Hacker News.
 
