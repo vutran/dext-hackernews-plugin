@@ -11,6 +11,10 @@
     "yc"
   ],
   "main": "index.js",
+  "files": [
+    "icon.png",
+    "index.js"
+  ],
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "dependencies": {
