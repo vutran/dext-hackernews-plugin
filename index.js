@@ -39,7 +39,7 @@ module.exports = {
       path: './icon.png',
     },
   },
-  execute: q => new Promise(resolve => {
+  query: q => new Promise(resolve => {
     switch (q) {
       case 'new':
       case 'top':

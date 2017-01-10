@@ -23,25 +23,25 @@ require('got').__setProcessData({
 
 describe('Hacker News Plugin', () => {
   it('should returns 10 items for "new"', async () => {
-    const data = await hack.execute('new');
+    const data = await hack.query('new');
     expect(data.items.length).toBe(10);
     expect(data.items[0].title).not.toBeUndefined();
   });
 
   it('should returns 10 items for "top"', async () => {
-    const data = await hack.execute('top');
+    const data = await hack.query('top');
     expect(data.items.length).toBe(10);
     expect(data.items[0].title).not.toBeUndefined();
   });
 
   it('should returns 10 items for "best"', async () => {
-    const data = await hack.execute('best');
+    const data = await hack.query('best');
     expect(data.items.length).toBe(10);
     expect(data.items[0].title).not.toBeUndefined();
   });
 
   it('should return no items for other keywords', async () => {
-    const data = await hack.execute('FOOBAR');
+    const data = await hack.query('FOOBAR');
     expect(data.items.length).toBe(0);
   });
 });
